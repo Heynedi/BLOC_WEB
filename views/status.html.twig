@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statut de l'Application N°4{% endblock %}
+
+{% block content %}
+    <main>
+        <h1>Détails du Statut</h1>
+
+        {# On vérifie si la base de données a bien trouvé la ligne n°4 #}
+        {% if status %}
+            
+            <div style="background-color: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 30px; border: 1px solid #eee;">
+                
+                {# Affiche l'ID #}
+                <p><strong>ID :</strong> {{ status.application_status_id }}</p>
+                
+                {# ICI, remplace 'nom' et 'description' par les VRAIS noms des colonnes de ta table #}
+                <p><strong>Nom du statut :</strong> {{ status.status }}</p>
+                
+            </div>
+
+        {% else %}
+            <p style="color: red; margin-top: 20px; font-weight: bold;">
+                Aucune donnée trouvée. La ligne avec l'ID 4 n'existe pas dans la table APPLICATION_STATUS.
+            </p>
+        {% endif %}
+    </main>
+{% endblock %}
